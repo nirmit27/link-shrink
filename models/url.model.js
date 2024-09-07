@@ -11,11 +11,6 @@ const urlSchema = new Schema(
       required: true,
       unique: true,
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      expires: "30d",
-    },
   },
   {
     timestamps: true,
