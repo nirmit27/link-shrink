@@ -22,11 +22,6 @@ app.get("/", (req, res) => {
     message: "This is a REST API for shortening URLs built using Express.",
     docs: [
       {
-        heading: "Home",
-        route: "/",
-        details: "This is the home page, which contains the API documentation.",
-      },
-      {
         heading: "Shrink long URL",
         route: "/shrink",
         details:
