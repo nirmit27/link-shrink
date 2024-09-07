@@ -2,7 +2,6 @@ import express from "express";
 import { configDotenv } from "dotenv";
 
 import router from "./routes/url.route.js";
-import connectDB from "./db.js";
 
 configDotenv();
 const PORT = process.env.PORT || 3000;
@@ -15,5 +14,4 @@ app.use("/", router);
 
 app.listen(PORT, async () => {
   console.log(`Server is live on port ${PORT}`);
-  await connectDB();
 });
