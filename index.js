@@ -44,7 +44,6 @@ app.get("/", (req, res) => {
         details:
           "This route redirects to the webpage whose URL corresponds to the 8-character hash code sent as the query parameter.",
       },
-      },
       {
         heading: "All records",
         route: "/all",
