@@ -7,7 +7,6 @@
     <title>
         <%= title %>
     </title>
-
     <style>
         * {
             margin: 0;
@@ -20,18 +19,42 @@
             height: 100vh;
         }
     </style>
-
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <div class="w-full h-full flex justify-center items-center p-4 flex-col gap-2">
-        <h2 class="text-xl font-bold">
-            <%= title %>
-        </h2>
-        <p>
-            <%= message %>
-        </p>
+<body class="flex items-center justify-between flex-col gap-2">
+    <div class="mt-8 w-1/2">
+        <div class="mb-6">
+            <h2 class="text-3xl font-bold mb-4">
+                <%= title %>
+            </h2>
+            <p class="text-md">
+                <%= message %>
+            </p>
+        </div>
+        <div class="my-6">
+            <h2 class="text-2xl font-bold mb-2 text-slate-700">Documentation</h2>
+
+            <% docs.forEach((doc)=> {%>
+
+                <details class="p-1">
+                    <summary class="text-lg mb-2">
+                        <%= doc.heading %>
+                    </summary>
+                    <code class="font-bold bg-slate-200 py-1 px-2 rounded-md"><%= doc.route %></code>
+                    <p class="my-2">
+                        <%= doc.details %>
+                    </p>
+                </details>
+
+                <% })%>
+
+        </div>
+    </div>
+
+    <div class="sticky bottom-0 p-4 w-full text-center">
+        Made with &#129505; by <a href="https://github.com/nirmit27" target="_blank" rel="noopener noreferrer"
+            class="text-slate-700 font-semibold hover:text-blue-800">Nirmit Mishra</a>.
     </div>
 </body>
 

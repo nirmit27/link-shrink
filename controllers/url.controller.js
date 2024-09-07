@@ -9,6 +9,20 @@ export async function fetchUrl(req, res) {
       return res.status(404).json({
         error: `No URLs found for code '${code}'`,
       });
+    res.status(200).json({ longUrl: longUrl });
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+}
+
+export async function visitUrl(req, res) {
+  try {
+    const code = req.params.code;
+    const longUrl = await getLongUrl(code);
+    if (longUrl === null)
+      return res.status(404).json({
+        error: `No URLs found for code '${code}'`,
+      });
     res.redirect(longUrl);
   } catch (error) {
     res.status(500).json({ error: error });

@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import {
+  visitUrl,
   fetchUrl,
   fetchAll,
   shrinkUrl,
@@ -16,8 +17,12 @@ router.get("/all", async (req, res) => {
   await fetchAll(req, res);
 });
 
-router.get("/:code", async (req, res) => {
+router.get("/url/:code", async (req, res) => {
   await fetchUrl(req, res);
+});
+
+router.get("/visit/:code", async (req, res) => {
+  await visitUrl(req, res);
 });
 
 router.post("/shrink", async (req, res) => {

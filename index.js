@@ -19,7 +19,32 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
   const data = {
     title: "Link Shortener",
-    message: "This is a REST API for shortening long URLs.",
+    message: "This is a REST API for shortening URLs built using Express.",
+    docs: [
+      {
+        heading: "Home",
+        route: "/",
+        details: "This is the home page, which contains the API documentation.",
+      },
+      {
+        heading: "Shrink long URL",
+        route: "/shrink",
+        details:
+          "This route handles the POST requests and generates the 8-character hash code for the long URL passed in the JSON format.",
+      },
+      {
+        heading: "Fetch long URL",
+        route: "/url/:code",
+        details:
+          "This route returns the long URL corresponding to the 8-character hash code sent as the query parameter.",
+      },
+      {
+        heading: "Visit long URL",
+        route: "/visit/:code",
+        details:
+          "This route redirects to the webpage whose URL corresponds to the 8-character hash code sent as the query parameter.",
+      },
+    ],
   };
   res.render("home", data);
 });

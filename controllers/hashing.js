@@ -2,12 +2,6 @@ import crypto from "crypto";
 
 import Url from "../models/url.model.js";
 
-export function hashUrl(url) {
-  const hash = crypto.createHash("sha256").update(url);
-  const shortCode = hash.digest("hex");
-  return shortCode.slice(0, 8);
-}
-
 export async function getShortCode(longUrl) {
   const prevEntry = await Url.findOne({
     longUrl: longUrl,
@@ -15,7 +9,11 @@ export async function getShortCode(longUrl) {
   if (prevEntry !== null) {
     return prevEntry["shortCode"];
   }
-  const shortCode = hashUrl(longUrl);
+  const shortCode = crypto
+    .createHash("sha256")
+    .update(longUrl)
+    .digest("hex")
+    .slice(0, 8);
   const newEntry = await Url.create({
     longUrl: longUrl,
     shortCode: shortCode,
