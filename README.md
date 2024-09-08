@@ -32,7 +32,7 @@ This project is a REST API for shortening URLs, built using **Express.js**. The 
 
 - **Route**: `GET /url/:code`
 - **Description**: This route returns the original long URL corresponding to the 8-character hash code sent as the query parameter.
-- **Request Example**: `GET /url/abc12345`
+- **Request Example**: `GET /url/58a71bc0`
 - **Response Example**:
   ```json
   {
