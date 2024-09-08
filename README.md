@@ -46,7 +46,9 @@ This project is a REST API for shortening URLs, built using **Express.js**. The 
 - **Description**: This route redirects the user to the webpage whose URL corresponds to the 8-character hash code passed as the query parameter.
 - **Request Example**: `GET /visit/abc12345`
 - **Response Example**:
-  ![Response Screenshot](sample.jpg)
+  
+  ![Response Screenshot](./public/ss.jpg)
+  
   
 ### 4. **All Records**
 
