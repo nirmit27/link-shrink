@@ -23,25 +23,25 @@ app.get("/", (req, res) => {
     docs: [
       {
         heading: "Shrink long URL",
-        route: "/shrink",
+        route: "POST /shrink",
         details:
-          "This route handles the POST requests and generates the 8-character hash code for the long URL passed in the JSON format.",
+          "This route generates the 8-character hash code for the long URL passed in the JSON format.",
       },
       {
         heading: "Fetch long URL",
-        route: "/url/:code",
+        route: "GET /url/:code",
         details:
           "This route returns the long URL corresponding to the 8-character hash code sent as the query parameter.",
       },
       {
         heading: "Visit long URL",
-        route: "/visit/:code",
+        route: "GET /visit/:code",
         details:
           "This route redirects to the webpage whose URL corresponds to the 8-character hash code sent as the query parameter.",
       },
       {
         heading: "All records",
-        route: "/all",
+        route: "GET /all",
         details:
           "This route enlists all the long URLs alongwith their hashed codes.",
       },
