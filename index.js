@@ -19,7 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
   const data = {
     title: "Link Shortener",
-    message: "This is a REST API for shortening URLs built using Express.",
+    message:
+      "This is a REST API for shortening URLs, built using Express.js. The API provides several endpoints for generating short URLs, retrieving original URLs, and managing records",
     docs: [
       {
         heading: "Shrink long URL",
