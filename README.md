@@ -16,12 +16,14 @@ This project is a REST API for shortening URLs, built using **Express.js**. The 
 - **Route**: `POST /shrink`
 - **Description**: This route handles POST requests and generates an 8-character hash code for the long URL passed in the request body as JSON.
 - **Request Example**:
+  
   ```json
   {
     "longUrl": "https://github.com/nirmit27"
   }
   ```
 - **Response Example**:
+  
   ```json
   {
     "shortCode": "58a71bc0"
@@ -34,6 +36,7 @@ This project is a REST API for shortening URLs, built using **Express.js**. The 
 - **Description**: This route returns the original long URL corresponding to the 8-character hash code sent as the query parameter.
 - **Request Example**: `GET /url/58a71bc0`
 - **Response Example**:
+  
   ```json
   {
     "longUrl": "https://github.com/nirmit27"
@@ -56,6 +59,7 @@ This project is a REST API for shortening URLs, built using **Express.js**. The 
 - **Description**: This route lists all the long URLs along with their corresponding hash codes.
 - **Request Example**: `GET /all`
 - **Response Example**:
+  
   ```json
   [
     {
