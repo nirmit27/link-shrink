@@ -1,9 +1,11 @@
 import path from "path";
 import express from "express";
 import { configDotenv } from "dotenv";
+import { inject } from "@vercel/analytics";
 
 import router from "./routes/url.route.js";
 
+inject();
 configDotenv();
 const PORT = process.env.PORT || 3000;
 
