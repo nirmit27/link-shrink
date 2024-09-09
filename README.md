@@ -54,12 +54,7 @@ This project is a REST API for shortening URLs, built using **Express.js**. The 
 
 - **Route**: `GET /all`
 - **Description**: This route lists all the long URLs along with their corresponding hash codes.
-- **Request Example**:
-  ```json
-  {
-    "url": "https://www.example.com/very/long/url"
-  }
-  ```
+- **Request Example**: `GET /all`
 - **Response Example**:
   ```json
   [
@@ -99,6 +94,3 @@ This project is a REST API for shortening URLs, built using **Express.js**. The 
 [![Express.js](https://img.shields.io/badge/Expressjs-404D59?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)&nbsp;
 [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)&nbsp;
 [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
-
-
-  
