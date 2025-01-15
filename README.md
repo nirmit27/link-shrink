@@ -1,94 +1,98 @@
-# Link Shortener
+# Link Shortener API
 
-This project is a REST API for shortening URLs, built using **Express.js**. The API provides several endpoints for generating short URLs, retrieving original URLs, and managing records.
+A simple and efficient **RESTful API** built with **Express.js** to shorten, manage, and retrieve URLs. This API enables users to generate short URLs, retrieve the original URLs, and redirect to the original webpage.
 
 ## Features
 
-- **Shrink long URLs**: Convert long URLs into shorter, 8-character hash codes.
-- **Retrieve original URLs**: Fetch the original long URL from the generated short code.
-- **Redirect to original URL**: Redirect users to the original URL when they visit a short URL.
-- **View all records**: Retrieve a list of all shortened URLs along with their hash codes.
+- Generates an **8-character** hash code for long URLs.
+- Retrieves the original URL using the short code.
+- Redirects to the original webpage using the short code.
 
-## Endpoints
+## API Reference
 
-### 1. **Shrink Long URL**
-
-- **Route**: `POST /shrink`
-- **Description**: This route handles POST requests and generates an 8-character hash code for the long URL passed in the request body as JSON.
-- **Request Example**:
-  
-  ```json
-  {
-    "longUrl": "https://github.com/nirmit27"
-  }
+### 1. Generate Short URL
+Accepts a long URL in **JSON** format and returns an 8-character hash code as the shortened URL.
+  ```http
+  POST /shrink
   ```
-- **Response Example**:
-  
-  ```json
-  {
-    "shortCode": "58a71bc0"
-  }
-  ```
-  
-### 2. **Fetch Long URL**
 
-- **Route**: `GET /url/:code`
-- **Description**: This route returns the original long URL corresponding to the 8-character hash code sent as the query parameter.
-- **Request Example**: `GET /url/58a71bc0`
-- **Response Example**:
-  
-  ```json
-  {
-    "longUrl": "https://github.com/nirmit27"
-  }
-  ```
-  
-### 3. **Visit Long URL**
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `longUrl` | `string` | **Required.** The long URL to be shortened. |
 
-- **Route**: `GET /visit/:code`
-- **Description**: This route redirects the user to the webpage whose URL corresponds to the 8-character hash code passed as the query parameter.
-- **Request Example**: `GET /visit/58a71bc0`
-  
-### 4. **All Records**
+**Request :**
+```json
+{  
+  "longUrl": "https://example.com/long-url"  
+}
+```
 
-- **Route**: `GET /all`
-- **Description**: This route lists all the long URLs along with their corresponding hash codes.
-- **Request Example**: `GET /all`
-- **Response Example**:
-  
-  ```json
-  [
-    {
-      "longUrl": "https://www.example.com/very/long/url",
-      "shortCode": "abc12345"
-    },
-    {
-      "longUrl": "https://www.anotherurl.com/",
-      "shortCode": "xyz98765"
-    }
-  ]
+**Response :**
+```json
+{  
+  "shortCode": "example123"  
+}  
+```
+
+### 2. Retrieve Original URL
+Takes an 8-character hash code as a **path** parameter and returns the corresponding long URL.
+  ```http
+  GET /url/:code
   ```
+
+| Parameter | Type     | Description                                               |
+| :-------- | :------- | :-------------------------------------------------------- |
+| `url`     | `string` | **Required.** 8-character hash code of the shortened URL. |
+
+**Response :**
+```json
+{  
+  "longUrl": "https://example.com/long-url"  
+}
+```
+
+
+### 3. Redirect to Original URL
+Redirects to the **original** long URL corresponding to the provided 8-character hash code.
+  ```http
+  GET /visit/:code
+  ```
+
+| Parameter | Type     | Description                                                   |
+| :-------- | :------- | :------------------------------------------------------------ |
+| `code`    | `string` | **Required.** The 8-character hash code of the shortened URL. |
+
 
 ## Installation and Setup
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/username/link-shortener.git
-   cd link-shortener
-   ```
+### Prerequisites
+- [Node.js](https://nodejs.org/en/download)
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 
-2. **Install dependencies**:
-   ```bash
-   npm i
-   ```
+### Installation
 
-3. **Run the server**:
-   ```bash
-   node index.js
-   ```
-   The server **should** start at `http://localhost:3000` if you have followed along.
+  #### 1. Clone the repository :
+  ```bash
+  git clone https://github.com/nirmit27/link-shrink.git
+  ```
 
-## Technologies Used
+#### 2. Navigate to the project directory :
+  ```bash
+  cd link-shrink
+  ```
+
+#### 3. Install dependencies :
+  ```bash
+  npm install
+  ```
+
+#### Running the development server
+  ```bash
+  node index.js
+  ```
+The **API** will be available at http://localhost:3000.
+
+## Tech Stack
 
 [![Node.js](https://img.shields.io/badge/Nodejs-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en)&nbsp;
 [![Express.js](https://img.shields.io/badge/Expressjs-404D59?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)&nbsp;
