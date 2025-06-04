@@ -7,7 +7,7 @@ const DB_NAME = process.env.DB_NAME;
 
 try {
   await connect(`${MONGODB_URI}/${DB_NAME}`);
-  console.log("Connected to MongoDB");
+  console.log("✅ DB Connected");
 } catch (error) {
   console.log(`MongoDB connection error : ${error}`);
   process.exit(1);

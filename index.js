@@ -56,5 +56,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, async () => {
-  console.log(`Server is live on port ${PORT}`);
+  console.log(`🌐 Server live on port ${PORT}`);
 });
