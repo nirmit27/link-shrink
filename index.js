@@ -23,7 +23,7 @@ app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 app.get("/", (req, res) => {
   const data = {
-    title: "Link Shortener API",
+    title: "Link Shortener",
     message:
       "This is a RESTful API built with Express.js for shortening and managing URLs. It provides endpoints for generating, retrieving, and visiting short URLs.",
     docs: [
